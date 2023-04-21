@@ -1,6 +1,10 @@
 body{
     background: black;
 }
+.imggit{
+    width: 200px;
+    height: 200px;
+}
 
 .bg-black{
     background: black;
