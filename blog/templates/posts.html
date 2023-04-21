@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1>Posteos</h1>
+{% for post in posts %}
+
+<div class="p-3">
+    <div class="card card-body bg-black">
+        <div class="row">
+            <div class="col-3">
+                <img class="img-fluid" src="{{post.image.url}}" alt="{{post.tittle}}">
+            </div>
+            <div class="col-9">
+                <h2>
+                    {{post.tittle}}
+                </h2>
+                <h3>
+                    {{post.date}}
+                </h3>
+                <p>
+                    {{post.description|striptags|truncatechars:100 }}
+                </p>
+                <p>
+                    {{post.date|date:'d M Y'|upper}}
+                </p>
+    
+                <a class="btn btn-primary" href="{% url 'blog:post_detail' post.id %}">{{post.tittle}}</a>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
